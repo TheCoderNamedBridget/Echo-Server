@@ -6,7 +6,7 @@ import java.io.*;
 * Take the input from the client and then look for the string server or client and replace it with client or server
 * use the input stream class
 */
-public class QuoteServer {
+public class EchoServer {
 
 	public static void main(String[] args) {
 		System.out.println("Server started");
