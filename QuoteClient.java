@@ -8,7 +8,7 @@ import java.net.Socket;
 //netstat -na | find "6017"
 //netstat -a -n -o | find "6017"
 //taskkill /pid 18264 /f
-public class QuoteClient {
+public class EchoClient {
 	
 	public static void main(String[] args) 
 	{
