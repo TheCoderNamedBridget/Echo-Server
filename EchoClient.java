@@ -10,7 +10,7 @@ import java.net.Socket;
 //taskkill /pid 18264 /f
 public class EchoClient {
 	
-	public static void main(String[] args) throws InterruptedException 
+	public static void main(String[] args) 
 	{
 		//System.out.println("Client started");
 		try {
@@ -22,7 +22,6 @@ public class EchoClient {
 			System.out.println("hello I am the client. I was busy doing client things yesterday when my client doctor called. he says I have client itis");
 			/*close the socket connection*/
 			System.out.println( "here1" );
-			Thread.sleep(10);
 			sock.close();
 			System.out.println( "here2" );
 //			pout.close();
