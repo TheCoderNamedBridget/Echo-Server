@@ -45,6 +45,7 @@ public class EchoServer {
 				}
 				else
 				{
+					System.out.println( "here" );
 					checkSocket = false;
 					client.close();
 					sock.close();
