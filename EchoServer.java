@@ -16,7 +16,7 @@ public class EchoServer {
 			ServerSocket sock = new ServerSocket(6017);
 			Boolean checkSocket = true;
 			Socket client = sock.accept();
-			byte[] bytesRead = new byte[50];
+			byte[] bytesRead = new byte[500];
 			/* now listen for connections */
 			while (checkSocket) {
 				InputStream in = client.getInputStream();
@@ -26,6 +26,7 @@ public class EchoServer {
 				if ( in.read(bytesRead) != -1 )
 				{
 					String s = new String(bytesRead, StandardCharsets.UTF_8);
+				
 //					BufferedReader bin = new BufferedReader(new InputStreamReader(in));
 //					String line;
 					String returnMsg = s;
@@ -45,7 +46,7 @@ public class EchoServer {
 				}
 				else
 				{
-					System.out.println( "here" );
+					//System.out.println( "here" );
 					checkSocket = false;
 					client.close();
 					sock.close();
