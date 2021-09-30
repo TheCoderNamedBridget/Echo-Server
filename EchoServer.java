@@ -1,5 +1,6 @@
 
 import java.net.*;
+import java.nio.charset.StandardCharsets;
 import java.io.*;
 
 /*
@@ -15,27 +16,28 @@ public class EchoServer {
 			ServerSocket sock = new ServerSocket(6017);
 			Boolean checkSocket = true;
 			Socket client = sock.accept();
-			
+			byte[] bytesRead = new byte[50];
 			/* now listen for connections */
 			while (checkSocket) {
 				InputStream in = client.getInputStream();
 				PrintWriter pout = new PrintWriter(client.getOutputStream(), true);
-				
-				if ( in.read() != -1)
+
+				//checks to see if client is still connected, reads next byte of data from the input stream
+				if ( in.read(bytesRead) != -1 )
 				{
-					//System.out.println("byte data " + in.read());
-					BufferedReader bin = new BufferedReader(new InputStreamReader(in));
-					String line;
-					String returnMsg = "";
-					while((line = bin.readLine()) != null) {
-						//System.out.println(line);
-						returnMsg += line;
-					}
+					String s = new String(bytesRead, StandardCharsets.UTF_8);
+//					BufferedReader bin = new BufferedReader(new InputStreamReader(in));
+//					String line;
+					String returnMsg = s;
+//					while((line = bin.readLine()) != null) {
+////						System.out.println(line);
+//						returnMsg += line;
+//					}
 					//take input from server and return correct output
 					returnMsg = returnMsg.replaceAll("client", "server");
 					/* Write the date to the socket */
 					pout.println( returnMsg);
-					System.out.println( returnMsg);
+					System.out.println( returnMsg );
 					/* close the socket and resume */
 					/* resume listening for connections */
 					//client.close();
