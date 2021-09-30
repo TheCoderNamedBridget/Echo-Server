@@ -21,10 +21,8 @@ public class EchoClient {
 			pout.println("hello I am the client. I was busy doing client things yesterday when my client doctor called. he says I have client itis");
 			System.out.println("hello I am the client. I was busy doing client things yesterday when my client doctor called. he says I have client itis");
 			/*close the socket connection*/
-			System.out.println( "here1" );
 			Thread.sleep(10);
 			sock.close();
-			System.out.println( "here2" );
 //			pout.close();
 			
 		}
